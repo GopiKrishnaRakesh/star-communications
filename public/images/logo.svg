@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64" fill="none">
+  <defs>
+    <linearGradient id="fullBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#182326" />
+      <stop offset="100%" stop-color="#0e1517" />
+    </linearGradient>
+    <linearGradient id="fullStarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#56cca0" />
+      <stop offset="50%" stop-color="#34a87a" />
+      <stop offset="100%" stop-color="#237452" />
+    </linearGradient>
+    <linearGradient id="fullOrbitGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7be3ba" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#2a8c63" stop-opacity="0.3" />
+    </linearGradient>
+    <linearGradient id="fullOrbitGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#56cca0" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#1b5a3e" stop-opacity="0.2" />
+    </linearGradient>
+    <radialGradient id="fullGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#48bb88" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#48bb88" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Emblem Group (Translated to x=4, y=4, size 56x56) -->
+  <g transform="translate(4, 4)">
+    <!-- Background Container Squircle -->
+    <rect x="0" y="0" width="56" height="56" rx="14" fill="url(#fullBgGrad)" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" />
+
+    <!-- Ambient Glow -->
+    <circle cx="28" cy="28" r="18" fill="url(#fullGlow)" />
+
+    <!-- Telecom Orbital Wave Rings -->
+    <ellipse cx="28" cy="28" rx="22" ry="8.5" transform="rotate(-30 28 28)" stroke="url(#fullOrbitGrad1)" stroke-width="1.6" stroke-dasharray="80 20" stroke-linecap="round" />
+    <ellipse cx="28" cy="28" rx="18" ry="7" transform="rotate(35 28 28)" stroke="url(#fullOrbitGrad2)" stroke-width="1.3" stroke-dasharray="60 18" stroke-linecap="round" />
+
+    <!-- The Nexus Star -->
+    <path d="M 28 9 Q 28 28 47 28 Q 28 28 28 47 Q 28 28 9 28 Q 28 28 28 9 Z" fill="url(#fullStarGrad)" />
+
+    <!-- Precision Star Facet Highlight -->
+    <path d="M 28 9 Q 28 28 47 28 L 28 28 Z" fill="#6fe0b3" opacity="0.4" />
+    <path d="M 28 47 Q 28 28 9 28 L 28 28 Z" fill="#1b5e40" opacity="0.4" />
+
+    <!-- Central Nexus Core -->
+    <polygon points="28,23 33,28 28,33 23,28" fill="#ffffff" opacity="0.95" />
+    <circle cx="28" cy="28" r="2" fill="#1b4d3e" />
+
+    <!-- Signal Pulse Nodes -->
+    <circle cx="28" cy="5.5" r="1.3" fill="#56cca0" />
+    <circle cx="50.5" cy="28" r="1.3" fill="#56cca0" />
+    <circle cx="28" cy="50.5" r="1.3" fill="#56cca0" />
+    <circle cx="5.5" cy="28" r="1.3" fill="#56cca0" />
+  </g>
+
+  <!-- Typography: STAR COMMUNICATIONS -->
+  <text x="74" y="32" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="18.5" fill="#f4f7f6" letter-spacing="-0.3">STAR COMMUNICATIONS</text>
+  
+  <!-- Subtitle: HOUNSLOW • LONDON -->
+  <text x="74" y="49" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#48bb88" letter-spacing="2.6">HOUNSLOW • LONDON</text>
+</svg>

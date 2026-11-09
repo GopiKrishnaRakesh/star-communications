@@ -1,0 +1,21 @@
+:root {
+  /* Natural Forest Slate & Botanical Jade Palette (Light Theme) */
+  --primary-color: #1e2d30;
+  --primary-color-rgb: 30, 45, 48;
+  
+  /* Natural Organic Sage & Botanical Jade Accent */
+  --secondary-color: #206d4d;
+  --secondary-color-rgb: 32, 109, 77;
+  
+  /* Soft Champagne / Light Titanium / Warm Mineral */
+  --tertiary-color: #2e8b63;
+  --tertiary-color-rgb: 46, 139, 99;
+
+  /* Light Theme Canvas & Surface Variables */
+  --light-bg-body: #fafcfb;
+  --light-bg-section: #f4f7f6;
+  --light-bg-card: #ffffff;
+  --light-border: #e1ebe7;
+  --light-text-main: #141f22;
+  --light-text-muted: #526366;
+}
