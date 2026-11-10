@@ -80,7 +80,7 @@
                             <div class="de-flex-col">
                                 <div id="logo" style="margin: 0; padding: 0;">
                                     <a href="index.html" class="d-flex align-items-center text-decoration-none">
-                                        <img src="/images/logo-icon.svg" alt="Star Communications Logo" style="width: 44px; height: 44px; margin-right: 12px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));" class="img-fluid">
+                                        <img src="/images/logo-icon.svg" alt="Star Communications Logo" style="width: 40px; height: 40px; margin-right: 12px;" class="img-fluid">
                                         <div class="text-start">
                                             <span class="fs-17 fw-bold text-dark d-block lh-1" style="letter-spacing: -0.2px;">STAR COMMUNICATIONS</span>
                                             <span class="fs-10 text-uppercase fw-600 tracking-2 d-block mt-1 brand-subline">HOUNSLOW • LONDON</span>
@@ -128,18 +128,20 @@
             <div id="top"></div>
 
             <!-- Hero Section (Interactive 3D Phone & Cinematic Zoom Stage) -->
-            <section id="hero-section" class="no-bottom pt-70 pb-50 bg-light-surface overflow-hidden position-relative" style="background: linear-gradient(180deg, #edf5f2 0%, #fafcfb 100%);">
+            <section id="hero-section" class="no-bottom pt-60 pb-50 bg-light-surface overflow-hidden position-relative" style="background: linear-gradient(180deg, #edf5f2 0%, #fafcfb 100%);">
                 <div class="container relative z-2">
                     <div class="row g-4 mb-2 justify-content-center text-center">
                         <div class="col-lg-9">
                             <div class="spacer-single"></div>
                             
-                            <!-- Trust Badge -->
-                            <div class="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3" style="background: #ffffff; border: 1px solid #d5e5df; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                                <span class="badge-accent me-2">EST. 2012</span>
-                                <span class="fw-bold me-2 text-dark">142 High Street, Hounslow</span>
-                                <span class="text-muted me-2">•</span>
-                                <span class="text-muted">Over 18,500+ Devices Repaired</span>
+                            <!-- Bench Live HUD Capsule -->
+                            <div class="bench-hud-capsule">
+                                <span class="live-pulse-dot"></span>
+                                <span class="text-dark"><strong>Bench Live:</strong> 3 Master Technicians on Duty</span>
+                                <span class="text-muted d-none d-sm-inline">•</span>
+                                <span class="text-dark d-none d-sm-inline"><strong>Average Turnaround:</strong> 22 Mins</span>
+                                <span class="text-muted">•</span>
+                                <span class="badge-subtle" style="padding: 2px 8px; font-size: 11px;">142 High Street</span>
                             </div>
 
                             <h1 class="mb-3 fw-bold text-dark" style="letter-spacing: -1px; font-size: calc(1.8rem + 1.8vw);">
@@ -160,7 +162,7 @@
                         </div>
                     </div>
 
-                    <!-- Interactive 3D Flagship Phone Stage (Titanium Hardware & Live OS) -->
+                    <!-- Interactive 3D Flagship Phone Stage (Titanium Hardware & Multi-Mode OS) -->
                     <div class="phone-stage-wrapper">
                         <!-- Flanking Ambient Badges -->
                         <div class="phone-ambient-pill phone-ambient-left">
@@ -184,7 +186,7 @@
                         </div>
 
                         <!-- The 3D Titanium Phone Frame -->
-                        <div id="interactive-phone" class="phone-device">
+                        <div id="interactive-phone" class="phone-device finish-natural">
                             <!-- Hardware Buttons -->
                             <div class="phone-btn phone-btn-action"></div>
                             <div class="phone-btn phone-btn-vol-up"></div>
@@ -224,78 +226,139 @@
 
                                     <!-- Inside Phone App UI -->
                                     <div class="phone-ui-content">
-                                        <!-- App Header -->
-                                        <div class="phone-app-header d-flex align-items-center justify-content-between mb-2">
-                                            <div class="d-flex align-items-center">
-                                                <img src="/images/logo-icon.svg" alt="Star Logo" style="width: 28px; height: 28px; margin-right: 8px;">
-                                                <div>
-                                                    <span class="fs-12 fw-bold text-dark d-block lh-1">STAR LAB</span>
-                                                    <span class="fs-9 text-uppercase text-color fw-bold">Live Diagnostics</span>
-                                                </div>
-                                            </div>
-                                            <span class="badge-subtle" style="font-size: 10px; padding: 3px 8px;"><i class="fa fa-circle text-success me-1" style="font-size: 7px;"></i> Open Now</span>
+                                        <!-- In-Screen Tab Switcher -->
+                                        <div class="phone-screen-tabs">
+                                            <button type="button" class="screen-tab-btn active" onclick="setPhoneScreenMode('diag', this)">4-Point Test</button>
+                                            <button type="button" class="screen-tab-btn" onclick="setPhoneScreenMode('crack', this)">Crack Slider</button>
+                                            <button type="button" class="screen-tab-btn" onclick="setPhoneScreenMode('speed', this)">Speed &amp; Parts</button>
                                         </div>
 
-                                        <!-- Device Feature Hero Inside Screen -->
-                                        <div class="rounded-3 overflow-hidden position-relative mb-2 shadow-sm border border-light-1" style="height: 140px;">
-                                            <img src="/images/stock/hero-phones.jpg" class="w-100 h-100" style="object-fit: cover;" alt="iPhone 16 Pro Titanium &amp; Galaxy S24">
-                                            <div class="position-absolute bottom-0 start-0 end-0 p-2 text-white" style="background: linear-gradient(180deg, transparent 0%, rgba(15,25,22,0.85) 100%);">
-                                                <span class="fs-10 badge bg-dark bg-opacity-75 text-white mb-1">Titanium Series</span>
-                                                <div class="fs-12 fw-bold lh-1 text-white">iPhone 16 / 15 Pro &amp; S24 Ultra</div>
+                                        <!-- SCREEN MODE 1: 4-Point Diagnostics -->
+                                        <div id="screen-mode-diag" class="screen-mode-panel">
+                                            <div class="phone-app-header d-flex align-items-center justify-content-between mb-2">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/logo-icon.svg" alt="Star Logo" style="width: 24px; height: 24px; margin-right: 8px;">
+                                                    <div>
+                                                        <span class="fs-12 fw-bold text-dark d-block lh-1">STAR LAB</span>
+                                                        <span class="fs-9 text-uppercase text-color fw-bold">Live Diagnostics</span>
+                                                    </div>
+                                                </div>
+                                                <span class="badge-subtle" style="font-size: 10px; padding: 2px 7px;"><i class="fa fa-circle text-success me-1" style="font-size: 7px;"></i> Open Now</span>
+                                            </div>
+
+                                            <div class="rounded-3 overflow-hidden position-relative mb-2 shadow-sm border border-light-1" style="height: 125px;">
+                                                <img id="phone-hero-img" src="/images/stock/hero-phones.jpg" class="w-100 h-100" style="object-fit: cover;" alt="iPhone 16 Pro Titanium &amp; Galaxy S24">
+                                                <div class="position-absolute bottom-0 start-0 end-0 p-2 text-white" style="background: linear-gradient(180deg, transparent 0%, rgba(15,25,22,0.88) 100%);">
+                                                    <span id="phone-spec-badge" class="fs-9 badge bg-dark bg-opacity-75 text-white mb-1">Natural Titanium</span>
+                                                    <div id="phone-spec-title" class="fs-11 fw-bold lh-1 text-white">iPhone 16 / 15 Pro &amp; S24 Ultra</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-1 text-start">
+                                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                                    <span class="fs-11 fw-bold text-dark">Hardware Readiness</span>
+                                                    <span class="fs-9 text-muted">Tap to Test</span>
+                                                </div>
+                                                
+                                                <div class="phone-diag-grid">
+                                                    <div class="diag-chip" onclick="toggleDiagnostic(this, 'Display', 'OEM Grade TrueTone')">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <i class="icofont-smart-phone text-color fs-13"></i>
+                                                            <span class="diag-badge">TEST</span>
+                                                        </div>
+                                                        <div class="fs-11 fw-bold text-dark">Display OLED</div>
+                                                        <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                                    </div>
+
+                                                    <div class="diag-chip" onclick="toggleDiagnostic(this, 'Battery', '100% Peak Health')">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <i class="icofont-battery-full text-color fs-13"></i>
+                                                            <span class="diag-badge">TEST</span>
+                                                        </div>
+                                                        <div class="fs-11 fw-bold text-dark">Battery Cell</div>
+                                                        <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                                    </div>
+
+                                                    <div class="diag-chip" onclick="toggleDiagnostic(this, 'Camera', '48MP Optics Active')">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <i class="icofont-camera text-color fs-13"></i>
+                                                            <span class="diag-badge">TEST</span>
+                                                        </div>
+                                                        <div class="fs-11 fw-bold text-dark">Optics &amp; FaceID</div>
+                                                        <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                                    </div>
+
+                                                    <div class="diag-chip" onclick="toggleDiagnostic(this, 'Port', 'Fast Charge 2.0')">
+                                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                                            <i class="icofont-lightning-ray text-color fs-13"></i>
+                                                            <span class="diag-badge">TEST</span>
+                                                        </div>
+                                                        <div class="fs-11 fw-bold text-dark">USB-C / Audio</div>
+                                                        <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="phone-diag-success" class="d-none text-center p-1 rounded-2 border border-success bg-white mb-1 shadow-sm">
+                                                    <span class="fs-10 text-success fw-bold"><i class="fa fa-check-circle me-1"></i> Device Certified • Ready for Express Bench!</span>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <!-- Interactive 4-Point Diagnostic Test Grid -->
-                                        <div class="mb-1 text-start">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="fs-11 fw-bold text-dark">4-Point Hardware Test</span>
-                                                <span class="fs-10 text-muted">Tap to Test</span>
+                                        <!-- SCREEN MODE 2: In-Phone Before/After Crack Slider -->
+                                        <div id="screen-mode-crack" class="screen-mode-panel d-none">
+                                            <div class="text-start mb-1">
+                                                <div class="fs-11 fw-bold text-dark">Optical Glass Restoration</div>
+                                                <div class="fs-9 text-muted">Drag handle to inspect difference</div>
                                             </div>
-                                            
-                                            <div class="phone-diag-grid">
-                                                <!-- Diag 1: Screen -->
-                                                <div class="diag-chip" onclick="toggleDiagnostic(this, 'Display', 'OEM Grade TrueTone')">
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                                        <i class="icofont-smart-phone text-color fs-13"></i>
-                                                        <span class="diag-badge">TEST</span>
-                                                    </div>
-                                                    <div class="fs-11 fw-bold text-dark">Display OLED</div>
-                                                    <div class="fs-10 text-muted diag-status">Tap to check</div>
-                                                </div>
 
-                                                <!-- Diag 2: Battery -->
-                                                <div class="diag-chip" onclick="toggleDiagnostic(this, 'Battery', '100% Peak Health')">
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                                        <i class="icofont-battery-full text-color fs-13"></i>
-                                                        <span class="diag-badge">TEST</span>
-                                                    </div>
-                                                    <div class="fs-11 fw-bold text-dark">Battery Cell</div>
-                                                    <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                            <div id="phone-ba-slider" class="ba-slider-container in-phone">
+                                                <div class="ba-before-layer">
+                                                    <span class="ba-badge-label ba-badge-before" style="font-size: 8px; padding: 2px 6px;">Cracked OLED</span>
+                                                    <img src="/images/stock/screen-repair.jpg" alt="Cracked Screen Before">
                                                 </div>
-
-                                                <!-- Diag 3: Camera -->
-                                                <div class="diag-chip" onclick="toggleDiagnostic(this, 'Camera', '48MP Optics Active')">
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                                        <i class="icofont-camera text-color fs-13"></i>
-                                                        <span class="diag-badge">TEST</span>
-                                                    </div>
-                                                    <div class="fs-11 fw-bold text-dark">Optics &amp; FaceID</div>
-                                                    <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                                <div class="ba-after-layer">
+                                                    <span class="ba-badge-label ba-badge-after" style="font-size: 8px; padding: 2px 6px;">Pristine OEM</span>
+                                                    <img src="/images/stock/phone-screen-fix.jpg" alt="OEM Screen After">
                                                 </div>
-
-                                                <!-- Diag 4: Charging Port -->
-                                                <div class="diag-chip" onclick="toggleDiagnostic(this, 'Port', 'Fast Charge 2.0')">
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                                        <i class="icofont-lightning-ray text-color fs-13"></i>
-                                                        <span class="diag-badge">TEST</span>
-                                                    </div>
-                                                    <div class="fs-11 fw-bold text-dark">USB-C / Audio</div>
-                                                    <div class="fs-10 text-muted diag-status">Tap to check</div>
+                                                <div class="ba-handle" style="width: 26px; height: 26px;">
+                                                    <i class="fa fa-arrows-h" style="font-size: 10px;"></i>
                                                 </div>
                                             </div>
 
-                                            <div id="phone-diag-success" class="d-none text-center p-2 rounded-2 border border-success bg-white mb-2 shadow-sm">
-                                                <span class="fs-11 text-success fw-bold"><i class="fa fa-check-circle me-1"></i> Device Certified • Ready for Express Walk-In!</span>
+                                            <div class="p-2 bg-white rounded-2 border border-light-1 text-start fs-10 space-y-1 mb-2">
+                                                <div class="text-success fw-bold"><i class="fa fa-check me-1"></i> 100% TrueTone &amp; FaceID Retained</div>
+                                                <div class="text-muted"><i class="fa fa-shield me-1 text-color"></i> 12-Month Written Warranty</div>
+                                                <div class="text-dark"><i class="fa fa-clock-o me-1 text-color"></i> 20-30 Mins Walk-In Turnaround</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- SCREEN MODE 3: Speed & Parts Availability Check -->
+                                        <div id="screen-mode-speed" class="screen-mode-panel d-none">
+                                            <div class="text-start mb-2">
+                                                <div class="fs-11 fw-bold text-dark">Instant High St Parts Check</div>
+                                                <div class="fs-9 text-muted">Live inventory at 142 High Street</div>
+                                            </div>
+
+                                            <div class="p-2 bg-white rounded-2 border border-light-1 text-start mb-2">
+                                                <label class="fs-10 fw-bold text-dark d-block mb-1">Select Smartphone:</label>
+                                                <select class="form-select form-select-sm fs-11 py-1 mb-2" id="quickSpeedModel" onchange="updateQuickSpeedCheck()">
+                                                    <option value="iphone16">Apple iPhone 16 / 15 Pro Max</option>
+                                                    <option value="s24">Samsung Galaxy S24 / S23 Ultra</option>
+                                                    <option value="pixel8">Google Pixel 8 / 7 Pro</option>
+                                                    <option value="iphone14">Apple iPhone 14 / 13 / 12</option>
+                                                </select>
+                                                <div class="d-flex justify-content-between align-items-center fs-10 py-1 border-bottom border-light-1">
+                                                    <span>Screen Turnaround:</span>
+                                                    <span class="fw-bold text-success" id="quickSpeedTime">⚡ 20–25 Mins</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center fs-10 py-1 border-bottom border-light-1">
+                                                    <span>Parts in Hounslow:</span>
+                                                    <span class="fw-bold text-dark" id="quickSpeedStock">🟢 OEM Grade In Stock</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center fs-10 py-1">
+                                                    <span>Written Warranty:</span>
+                                                    <span class="fw-bold text-color">12 Months</span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -306,6 +369,18 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Titanium Color Dock -->
+                    <div class="text-center">
+                        <div class="titanium-dock">
+                            <span class="fs-12 fw-bold text-dark me-1">Chassis:</span>
+                            <button type="button" class="swatch-btn active" style="background: linear-gradient(135deg, #d8deda 0%, #a4b3ae 100%);" onclick="setPhoneFinish('natural', this)" title="Natural Titanium"></button>
+                            <button type="button" class="swatch-btn" style="background: linear-gradient(135deg, #dfcbba 0%, #b89b87 100%);" onclick="setPhoneFinish('desert', this)" title="Desert Titanium"></button>
+                            <button type="button" class="swatch-btn" style="background: linear-gradient(135deg, #383a3d 0%, #17181a 100%);" onclick="setPhoneFinish('black', this)" title="Obsidian Black"></button>
+                            <button type="button" class="swatch-btn" style="background: linear-gradient(135deg, #185a40 0%, #092e20 100%);" onclick="setPhoneFinish('emerald', this)" title="Star British Racing Emerald"></button>
+                            <span id="phone-finish-label" class="fs-11 text-muted ms-1">Natural Titanium</span>
                         </div>
                     </div>
 
@@ -399,6 +474,52 @@
                                 <div class="mt-4 pt-3 border-top border-light-1 d-flex justify-content-between align-items-center">
                                     <span class="badge-subtle">Free Diagnostic</span>
                                     <span class="fs-12 text-muted">No Fix No Fee</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Precision Lab Before & After Comparison Showcase -->
+            <section class="bg-light-surface pt-80 pb-80" id="precision-lab">
+                <div class="container">
+                    <div class="row g-4 mb-4 justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <div class="subtitle s2 mb-2 text-color fw-bold">Interactive Quality Standard</div>
+                            <h2>Clean-Bench Optical Restoration vs Cracked Display</h2>
+                            <p class="op-7">Drag the interactive slider below to inspect how our certified technicians restore fractured screens back to 100% factory optical performance with genuine TrueTone sensors intact.</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 justify-content-center align-items-center">
+                        <div class="col-lg-10">
+                            <div class="ba-card">
+                                <div id="main-ba-slider" class="ba-slider-container">
+                                    <!-- Before Layer (Left: Fractured Glass) -->
+                                    <div class="ba-before-layer">
+                                        <span class="ba-badge-label ba-badge-before"><i class="fa fa-times-circle me-1"></i> Shattered Glass &amp; Dead Pixels</span>
+                                        <img src="/images/stock/screen-repair.jpg" alt="Cracked Screen Before Repair">
+                                    </div>
+                                    
+                                    <!-- After Layer (Right: Pristine OEM) -->
+                                    <div class="ba-after-layer">
+                                        <span class="ba-badge-label ba-badge-after"><i class="fa fa-check-circle me-1"></i> Restored Factory OEM Display</span>
+                                        <img src="/images/stock/phone-screen-fix.jpg" alt="Restored OEM Screen After Repair">
+                                    </div>
+
+                                    <!-- Draggable Center Handle -->
+                                    <div class="ba-handle">
+                                        <i class="fa fa-arrows-h fs-14"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Technical Metrics Strip -->
+                                <div class="p-3 bg-white border-top border-light-1 d-flex flex-wrap justify-content-around align-items-center gap-3 fs-13 text-dark">
+                                    <div><i class="fa fa-clock-o text-color me-2"></i> <strong>Turnaround:</strong> 20–30 Mins Walk-In</div>
+                                    <div><i class="fa fa-shield text-color me-2"></i> <strong>Guarantee:</strong> 12-Month Written Warranty</div>
+                                    <div><i class="fa fa-eye text-color me-2"></i> <strong>Sensors:</strong> TrueTone &amp; FaceID Reprogrammed</div>
+                                    <div><i class="fa fa-tint text-color me-2"></i> <strong>Gasket:</strong> IP68 Dust Seal Reapplied</div>
                                 </div>
                             </div>
                         </div>
@@ -573,9 +694,18 @@
                         </div>
                     </div>
 
-                    <div class="row g-4">
+                    <!-- Interactive Category Filter Bar -->
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <button type="button" class="catalog-filter-btn active" onclick="filterCatalog('all', this)">All In-Store Items (8)</button>
+                        <button type="button" class="catalog-filter-btn" onclick="filterCatalog('flagship', this)">Flagship Smartphones</button>
+                        <button type="button" class="catalog-filter-btn" onclick="filterCatalog('preowned', this)">Certified Pre-Owned</button>
+                        <button type="button" class="catalog-filter-btn" onclick="filterCatalog('audio', this)">Audio &amp; Tablets</button>
+                        <button type="button" class="catalog-filter-btn" onclick="filterCatalog('protection', this)">Fast Charging &amp; Armor</button>
+                    </div>
+
+                    <div class="row g-4" id="catalog-items-grid">
                         <!-- Product 1: iPhone 15 Pro -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="flagship">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -595,7 +725,7 @@
                         </div>
 
                         <!-- Product 2: iPhone 14/15 -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="preowned">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -615,7 +745,7 @@
                         </div>
 
                         <!-- Product 3: Samsung S24 Ultra -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="flagship">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -635,7 +765,7 @@
                         </div>
 
                         <!-- Product 4: Google Pixel 8 -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="preowned">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -655,7 +785,7 @@
                         </div>
 
                         <!-- Product 5: AirPods Pro 2 -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="audio">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -675,7 +805,7 @@
                         </div>
 
                         <!-- Product 6: Apple iPad 10th Gen -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="audio">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -695,7 +825,7 @@
                         </div>
 
                         <!-- Product 7: 9H Diamond Armor Screen Protector -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="protection">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -715,7 +845,7 @@
                         </div>
 
                         <!-- Product 8: 65W GaN Charger -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 catalog-item" data-category="protection">
                             <div class="p-20 rounded-1 h-100 tech-card-luxury d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="relative rounded-1 overflow-hidden mb-3 bg-light-tint">
@@ -737,63 +867,100 @@
                 </div>
             </section>
 
-            <!-- Sell & Trade-In Section (Instant Cash in 15 Mins) -->
+            <!-- Interactive Trade-In Cash Valuation Station -->
             <section class="bg-light-tint pt-80 pb-80" id="trade-in">
                 <div class="container">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="subtitle s2 mb-2 text-color fw-bold">Turn Old Tech Into Cash</div>
-                            <h2>Sell or Trade-In Your Old Smartphone in Hounslow</h2>
-                            <p class="op-8 fs-15 mb-4">
-                                Don't leave old phones in drawers. We buy iPhones, Samsung Galaxy, iPads, and Google Pixels in almost any condition — including cracked screens, bad batteries, or locked devices.
-                            </p>
+                    <div class="row g-4 mb-4 justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <div class="subtitle s2 mb-2 text-color fw-bold">Live Valuation Estimator</div>
+                            <h2>Instant Cash or Trade-In Upgrade Calculator</h2>
+                            <p class="op-8">Select your device manufacturer, model, and physical condition below to generate an immediate verified walk-in trade-in quote. Cash in hand in 15 minutes.</p>
+                        </div>
+                    </div>
 
-                            <div class="row g-3 mb-4">
-                                <div class="col-sm-4">
-                                    <div class="p-3 bg-white rounded-1 border border-light-1 text-center shadow-sm">
-                                        <div class="fs-22 fw-bold text-dark mb-1">01</div>
-                                        <h6 class="mb-1 text-dark">Bring to Store</h6>
-                                        <p class="fs-12 text-muted mb-0">142 High Street</p>
+                    <div class="row g-4 align-items-stretch">
+                        <!-- Left: Interactive Multi-Step Valuation Configurator -->
+                        <div class="col-lg-7">
+                            <div class="calc-card-bespoke h-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <!-- Step 1: Brand -->
+                                    <div class="mb-3">
+                                        <div class="calc-step-title"><i class="fa fa-tag"></i> 1. Select Brand</div>
+                                        <div class="calc-pill-group">
+                                            <button type="button" class="calc-pill-btn active" onclick="selectTradeInBrand('apple', this)">Apple</button>
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInBrand('samsung', this)">Samsung</button>
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInBrand('google', this)">Google</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="p-3 bg-white rounded-1 border border-light-1 text-center shadow-sm">
-                                        <div class="fs-22 fw-bold text-dark mb-1">02</div>
-                                        <h6 class="mb-1 text-dark">5-Min Testing</h6>
-                                        <p class="fs-12 text-muted mb-0">Hardware Diagnostic</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="p-3 bg-white rounded-1 border border-light-1 text-center shadow-sm">
-                                        <div class="fs-22 fw-bold text-dark mb-1">03</div>
-                                        <h6 class="mb-1 text-dark">Instant Cash</h6>
-                                        <p class="fs-12 text-muted mb-0">Cash or Bank Payout</p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="d-flex flex-wrap gap-3">
-                                <a href="https://wa.me/447911123456?text=Hi%20Star%20Communications,%20I%20would%20like%20to%20sell/trade-in%20my%20device.%20Here%20are%20the%20details:" target="_blank" rel="noopener noreferrer" class="btn-main fx-slide">
-                                    <span>Send Device Photos for WhatsApp Valuation</span>
-                                </a>
-                                <a href="#location" class="btn-main btn-line fx-slide">
-                                    <span>Visit Shop with Photo ID</span>
-                                </a>
+                                    <!-- Step 2: Model -->
+                                    <div class="mb-3">
+                                        <div class="calc-step-title"><i class="fa fa-mobile"></i> 2. Choose Model</div>
+                                        <select class="form-select border-light-1 py-2 fw-semibold" id="tradeInModelSelect" onchange="updateTradeInCalculation()">
+                                            <!-- Dynamically populated -->
+                                        </select>
+                                    </div>
+
+                                    <!-- Step 3: Storage -->
+                                    <div class="mb-3">
+                                        <div class="calc-step-title"><i class="fa fa-database"></i> 3. Capacity</div>
+                                        <div class="calc-pill-group" id="tradeInStoragePills">
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInStorage('128GB', this)">128GB</button>
+                                            <button type="button" class="calc-pill-btn active" onclick="selectTradeInStorage('256GB', this)">256GB</button>
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInStorage('512GB', this)">512GB</button>
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInStorage('1TB', this)">1TB</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 4: Condition -->
+                                    <div class="mb-4">
+                                        <div class="calc-step-title"><i class="fa fa-sliders"></i> 4. Device Condition</div>
+                                        <div class="calc-pill-group" id="tradeInConditionPills">
+                                            <button type="button" class="calc-pill-btn active" onclick="selectTradeInCondition('flawless', this)">Grade A+ (Flawless / Boxed)</button>
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInCondition('good', this)">Grade B (Working / Light Scuffs)</button>
+                                            <button type="button" class="calc-pill-btn" onclick="selectTradeInCondition('cracked', this)">Cracked Glass / Broken Screen</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Trust Footer Inside Card -->
+                                <div class="pt-3 border-top border-light-1 d-flex flex-wrap justify-content-between align-items-center fs-12 text-muted gap-2">
+                                    <span><i class="fa fa-check text-success me-1"></i> Beat CeX &amp; High St Rates</span>
+                                    <span><i class="fa fa-bolt text-color me-1"></i> Faster Payments or Cash</span>
+                                    <span><i class="fa fa-lock text-color me-1"></i> GDPR Certified Wipe</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-6">
-                            <div class="p-40 rounded-1 bg-white border border-light-1 shadow-sm">
-                                <h4 class="mb-3 text-dark">Our Trade-In Valuation Standards</h4>
-                                <ul class="list-unstyled space-y-2 mb-4">
-                                    <li class="d-flex align-items-center mb-2 fs-14 op-8"><i class="fa fa-check text-success me-2"></i> <strong>Higher Payout Guarantee:</strong> We beat typical CeX and high street recycling rates.</li>
-                                    <li class="d-flex align-items-center mb-2 fs-14 op-8"><i class="fa fa-check text-success me-2"></i> <strong>All Conditions Accepted:</strong> Flawless, working, cracked glass, or dead motherboards.</li>
-                                    <li class="d-flex align-items-center mb-2 fs-14 op-8"><i class="fa fa-check text-success me-2"></i> <strong>Immediate Payout:</strong> Physical cash in hand or instant Faster Payments bank transfer.</li>
-                                    <li class="d-flex align-items-center mb-2 fs-14 op-8"><i class="fa fa-check text-success me-2"></i> <strong>Certified Data Erasure:</strong> We assist in wiping iCloud/Google accounts safely.</li>
-                                </ul>
+                        <!-- Right: Live Dynamic Payout & WhatsApp Claim Box -->
+                        <div class="col-lg-5">
+                            <div class="calc-payout-box h-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 px-3 py-1 rounded-pill fs-11 fw-bold">Live Valuation Result</span>
+                                        <span class="fs-11 text-white-50"><i class="fa fa-clock-o me-1"></i> 5-Min Assessment</span>
+                                    </div>
 
-                                <div class="p-3 rounded-1 fs-12" style="background: #edf5f2; color: #223c34;">
-                                    <i class="fa fa-info-circle me-1 text-color"></i> Please bring 1 valid government photo ID (UK driving license or passport) when completing an in-store sale.
+                                    <h4 class="text-white mb-1" id="tradeInDeviceSummary">Apple iPhone 15 Pro (256GB)</h4>
+                                    <div class="fs-12 text-white-50 mb-4" id="tradeInConditionSummary">Condition: Grade A+ Pristine (Full Functional Working Order)</div>
+
+                                    <div class="p-3 rounded-3 mb-4" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);">
+                                        <div class="fs-11 text-uppercase text-white-50 tracking-1 mb-1">Estimated Valuation Tier</div>
+                                        <div class="fs-22 fw-bold text-white mb-1" id="tradeInTierBadge">Top Cash Market Value Tier</div>
+                                        <p class="fs-12 text-white-50 mb-0" id="tradeInTierDesc">Eligible for our highest in-store cash payout or immediate trade-in credit toward any certified phone in store.</p>
+                                    </div>
+
+                                    <div class="space-y-2 fs-12 text-white-50 mb-4">
+                                        <div><i class="fa fa-map-marker text-success me-2"></i> Instant Walk-In Payout at 142 High Street, Hounslow</div>
+                                        <div><i class="fa fa-shield text-success me-2"></i> Free iCloud / Google Account Transfer &amp; Safe Wipe</div>
+                                        <div><i class="fa fa-id-card-o text-success me-2"></i> Bring 1 Photo ID (Driving License or Passport)</div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <a id="tradeInWaBtn" href="https://wa.me/447911123456?text=Hi%20Star%20Communications,%20I%20would%20like%20to%20trade%20in%20my%20Apple%20iPhone%2015%20Pro%20(256GB,%20Grade%20A+)." target="_blank" rel="noopener noreferrer" class="btn-main d-block text-center py-3 fs-13 fw-bold rounded-pill shadow-sm" style="background: #25D366 !important; border-color: #25D366 !important; color: #ffffff !important;">
+                                        <i class="fa-brands fa-whatsapp fs-16 me-2"></i> Lock In Valuation &amp; Get WhatsApp Claim Pass
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -801,14 +968,14 @@
                 </div>
             </section>
 
-            <!-- Interactive "Book a Repair / Request a Free Quote" Form -->
+            <!-- Interactive Express Appointment & Parts Reservation Station -->
             <section class="bg-light-surface pt-80 pb-80" id="book-repair">
                 <div class="container">
                     <div class="row g-4 justify-content-center text-center mb-4">
                         <div class="col-lg-7">
-                            <div class="subtitle s2 mb-2 text-color fw-bold">Express Appointment &amp; Parts Reservation</div>
-                            <h2>Book a Repair or Request a Free Quote</h2>
-                            <p class="op-7">Reserve your parts and preferred turnaround slot in seconds. Walk-ins are always welcome anytime during open hours.</p>
+                            <div class="subtitle s2 mb-2 text-color fw-bold">Live Repair Configurator</div>
+                            <h2>Book a Fast-Track Walk-In Slot &amp; Reserve Parts</h2>
+                            <p class="op-7">Select your hardware category and issue below to verify turnaround time and reserve parts. No advance payment required.</p>
                         </div>
                     </div>
 
@@ -816,76 +983,122 @@
                         <div class="col-lg-8">
                             <div class="p-40 bg-white rounded-1 border border-light-1 shadow-sm">
                                 <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
-                                    <div class="row g-3">
-                                        <!-- Device Type -->
-                                        <div class="col-md-6">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Device Category</label>
-                                            <select class="form-select border-light-1" id="bookDevice" required>
-                                                <option value="Smartphone (iPhone / Samsung / Pixel)">Smartphone (iPhone / Samsung / Pixel)</option>
-                                                <option value="Apple iPad or Tablet">Apple iPad or Tablet</option>
-                                                <option value="Apple MacBook or Laptop">Apple MacBook or Laptop</option>
-                                                <option value="Apple Watch or Smartwatch">Apple Watch or Smartwatch</option>
-                                                <option value="Game Console or Other">Game Console or Other</option>
-                                            </select>
+                                    <!-- Interactive Device Selector Chips -->
+                                    <div class="mb-3 text-start">
+                                        <label class="fs-12 fw-bold text-dark text-uppercase tracking-1 mb-2 d-block">1. Select Device Family</label>
+                                        <div class="booking-chip-grid">
+                                            <div class="booking-chip active" onclick="selectBookingDevice('Apple iPhone', this)">
+                                                <i class="icofont-brand-apple fs-18 text-dark d-block mb-1"></i>
+                                                <span class="fs-12 fw-bold text-dark">iPhone</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingDevice('Samsung Galaxy', this)">
+                                                <i class="icofont-smart-phone fs-18 text-color d-block mb-1"></i>
+                                                <span class="fs-12 fw-bold text-dark">Samsung</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingDevice('Apple iPad / Tablet', this)">
+                                                <i class="icofont-tablet fs-18 text-color d-block mb-1"></i>
+                                                <span class="fs-12 fw-bold text-dark">iPad / Tab</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingDevice('Apple MacBook / Laptop', this)">
+                                                <i class="icofont-laptop fs-18 text-color d-block mb-1"></i>
+                                                <span class="fs-12 fw-bold text-dark">MacBook</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingDevice('Smartwatch / Console', this)">
+                                                <i class="icofont-game-pad fs-18 text-color d-block mb-1"></i>
+                                                <span class="fs-12 fw-bold text-dark">Watch / Console</span>
+                                            </div>
                                         </div>
+                                        <input type="hidden" id="bookDevice" value="Apple iPhone" required>
+                                    </div>
 
-                                        <!-- Model Name -->
-                                        <div class="col-md-6">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Model (e.g. iPhone 15 Pro, Galaxy S24)</label>
-                                            <input type="text" class="form-control border-light-1" id="bookModel" placeholder="e.g. iPhone 15 Pro" required>
+                                    <!-- Interactive Issue Selector Chips -->
+                                    <div class="mb-3 text-start">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <label class="fs-12 fw-bold text-dark text-uppercase tracking-1 mb-0">2. Select Primary Repair</label>
+                                            <div id="bookingTurnaroundBadge" class="badge-subtle text-success fs-11">
+                                                <i class="fa fa-bolt me-1"></i> 20–30 Mins Turnaround
+                                            </div>
                                         </div>
+                                        <div class="booking-chip-grid">
+                                            <div class="booking-chip active" onclick="selectBookingIssue('Cracked Screen / OLED Display', '20–30 Mins', this)">
+                                                <span class="fs-12 fw-semibold text-dark">Screen Repair</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingIssue('Battery Health Replacement', '15–25 Mins', this)">
+                                                <span class="fs-12 fw-semibold text-dark">Battery Cell</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingIssue('Charging Port Repair', '20 Mins', this)">
+                                                <span class="fs-12 fw-semibold text-dark">Charging Port</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingIssue('Back Glass Laser Replacement', '45–60 Mins', this)">
+                                                <span class="fs-12 fw-semibold text-dark">Rear Glass</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingIssue('Water / Liquid Damage Diagnostic', 'Same-Day Lab', this)">
+                                                <span class="fs-12 fw-semibold text-dark">Liquid Spillage</span>
+                                            </div>
+                                            <div class="booking-chip" onclick="selectBookingIssue('Micro-Soldering / Logic Board', 'Same-Day Lab', this)">
+                                                <span class="fs-12 fw-semibold text-dark">Logic Board</span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="bookService" value="Cracked Screen / OLED Display" required>
+                                    </div>
 
-                                        <!-- Repair Issue -->
+                                    <div class="row g-3 text-start">
+                                        <!-- Model Input -->
                                         <div class="col-md-6">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Service Needed</label>
-                                            <select class="form-select border-light-1" id="bookService" required>
-                                                <option value="Cracked Screen / Display Replacement">Cracked Screen / Display Replacement</option>
-                                                <option value="Battery Health Replacement">Battery Health Replacement</option>
-                                                <option value="Charging Port Repair / Cleaning">Charging Port Repair / Cleaning</option>
-                                                <option value="Back Glass Laser Repair">Back Glass Laser Repair</option>
-                                                <option value="Water / Liquid Damage Diagnostic">Water / Liquid Damage Diagnostic</option>
-                                                <option value="Network / Carrier Unlocking">Network / Carrier Unlocking</option>
-                                                <option value="Data Transfer / Free Diagnostic">Data Transfer / Free Diagnostic</option>
-                                            </select>
+                                            <label class="fs-13 fw-semibold text-dark mb-1">Specific Model</label>
+                                            <input type="text" class="form-control border-light-1" id="bookModel" placeholder="e.g. iPhone 15 Pro Max, Galaxy S24" required>
                                         </div>
 
                                         <!-- Preferred Date -->
                                         <div class="col-md-6">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Preferred Date</label>
+                                            <label class="fs-13 fw-semibold text-dark mb-1">Preferred Date</label>
                                             <input type="date" class="form-control border-light-1" id="bookDate" required>
                                         </div>
 
-                                        <!-- Full Name -->
+                                        <!-- Time Slot Selector -->
+                                        <div class="col-12">
+                                            <label class="fs-13 fw-semibold text-dark mb-1">Preferred Arrival Window</label>
+                                            <div class="d-flex flex-wrap gap-2" id="bookingSlotPills">
+                                                <div class="booking-time-slot active" onclick="selectBookingSlot('10:30 AM', this)">10:30 AM</div>
+                                                <div class="booking-time-slot" onclick="selectBookingSlot('12:00 PM', this)">12:00 PM</div>
+                                                <div class="booking-time-slot" onclick="selectBookingSlot('02:30 PM', this)">02:30 PM</div>
+                                                <div class="booking-time-slot" onclick="selectBookingSlot('04:30 PM', this)">04:30 PM</div>
+                                                <div class="booking-time-slot" onclick="selectBookingSlot('06:00 PM', this)">06:00 PM</div>
+                                            </div>
+                                            <input type="hidden" id="bookTimeSlot" value="10:30 AM">
+                                        </div>
+
+                                        <!-- Name -->
                                         <div class="col-md-6">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Your Name</label>
+                                            <label class="fs-13 fw-semibold text-dark mb-1">Your Full Name</label>
                                             <input type="text" class="form-control border-light-1" id="bookName" placeholder="e.g. David Patel" required>
                                         </div>
 
                                         <!-- Phone -->
                                         <div class="col-md-6">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Mobile Phone (For SMS Status)</label>
+                                            <label class="fs-13 fw-semibold text-dark mb-1">Mobile Phone (For SMS Ready Alert)</label>
                                             <input type="tel" class="form-control border-light-1" id="bookPhone" placeholder="07..." required>
                                         </div>
 
                                         <!-- Additional Notes -->
                                         <div class="col-12">
-                                            <label class="fs-13 fw-semibold text-dark mb-2">Additional Details (Optional)</label>
-                                            <textarea class="form-control border-light-1" rows="2" id="bookNotes" placeholder="Describe what happened (e.g. dropped on pavement, face-down, urgent repair)..."></textarea>
+                                            <label class="fs-13 fw-semibold text-dark mb-1">Symptoms / Fault Details (Optional)</label>
+                                            <textarea class="form-control border-light-1" rows="2" id="bookNotes" placeholder="Describe symptoms (e.g. green vertical line on display, dropped on pavement, urgently need for work)..."></textarea>
                                         </div>
 
-                                        <!-- Trust Notice -->
+                                        <!-- Trust Notice Strip -->
                                         <div class="col-12">
-                                            <div class="p-3 rounded-1 fs-12 d-flex align-items-center justify-content-between flex-wrap gap-2" style="background: #edf5f2; color: #223c34;">
-                                                <span><i class="fa fa-shield text-success me-1"></i> 12-Month Guarantee on all parts</span>
-                                                <span><i class="fa fa-check text-success me-1"></i> No advance deposit required</span>
-                                                <span><i class="fa fa-clock-o text-color me-1"></i> 20-30 Min turnarounds</span>
+                                            <div class="p-3 rounded-2 fs-12 d-flex align-items-center justify-content-between flex-wrap gap-2" style="background: #edf5f2; color: #223c34;">
+                                                <span><i class="fa fa-shield text-success me-1"></i> 12-Month Written Warranty</span>
+                                                <span><i class="fa fa-check text-success me-1"></i> Free Diagnostic if Unrepairable</span>
+                                                <span><i class="fa fa-lock text-color me-1"></i> 100% Data Confidentiality</span>
                                             </div>
                                         </div>
 
                                         <!-- Submit Button -->
                                         <div class="col-12 text-center mt-3">
                                             <button type="submit" class="btn-main fx-slide w-100 py-3">
-                                                <span>Confirm Repair Reservation (Instant &amp; Free)</span>
+                                                <span>Confirm Walk-In Reservation &amp; Hold Parts</span>
                                             </button>
                                         </div>
                                     </div>
@@ -894,8 +1107,8 @@
                                 <!-- Booking Success Alert Box -->
                                 <div id="bookingConfirmation" class="d-none mt-4 p-4 rounded-1 bg-white border border-success text-center shadow-sm">
                                     <i class="icofont-check-circled text-success fs-48 mb-2 d-block"></i>
-                                    <h4 class="text-dark mb-1">Reservation Confirmed!</h4>
-                                    <p class="fs-14 op-8 mb-3" id="confirmText">We have reserved parts for your service at 142 High Street, Hounslow.</p>
+                                    <h4 class="text-dark mb-1">Parts Reserved &amp; Fast-Track Confirmed!</h4>
+                                    <p class="fs-14 op-8 mb-3" id="confirmText">We have reserved components for your service at 142 High Street, Hounslow.</p>
                                     <div class="d-inline-block px-3 py-1 rounded bg-light text-color font-monospace fw-bold mb-3 border" id="bookingCode">REF: SC-2849</div>
                                     <div class="d-flex flex-wrap justify-content-center gap-2 mt-2">
                                         <a id="waConfirmBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-main fx-slide" style="padding: 10px 20px;">
@@ -913,63 +1126,125 @@
                 </div>
             </section>
 
-            <!-- Why Choose Star Communications -->
+            <!-- Architectural Bento Grid: The Star Standard -->
             <section class="bg-light-tint pt-80 pb-80" id="why-choose-us">
                 <div class="container">
-                    <div class="row g-4 mb-4 justify-content-center text-center">
-                        <div class="col-lg-7">
+                    <div class="row g-4 mb-5 justify-content-center text-center">
+                        <div class="col-lg-8">
                             <div class="subtitle s2 mb-2 text-color fw-bold">The Star Communications Standard</div>
-                            <h2>Why West London Relies On Our Team</h2>
-                            <p class="op-7">Proudly serving Hounslow, Isleworth, Brentford, Cranford, and Heathrow travelers for over 12 years.</p>
+                            <h2>Why Hounslow &amp; West London Relies On Our Lab</h2>
+                            <p class="op-7">Designed for discerning smartphone owners who demand surgical precision, authentic parts, and zero compromises on data privacy.</p>
                         </div>
                     </div>
 
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-30 rounded-1 h-100 tech-card-luxury">
-                                <div class="fs-32 text-color mb-3"><i class="fa fa-shield"></i></div>
-                                <h4>12-Month Guarantee</h4>
-                                <p class="op-7 fs-14 mb-0">Every screen, battery, and replacement part is backed by our comprehensive written 1-year warranty against any manufacturing defect.</p>
+                    <div class="bento-grid">
+                        <!-- Bento 1: 8-Column Wide Express Protocol -->
+                        <div class="bento-col-8">
+                            <div class="bento-card">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="badge-subtle"><i class="fa fa-bolt text-success me-1"></i> High Street Bench Standard</span>
+                                        <span class="fs-12 text-muted fw-bold">20–30 MIN TURNAROUND</span>
+                                    </div>
+                                    <h3 class="mb-2">The 20-Minute Express Bench Protocol</h3>
+                                    <p class="op-7 fs-14 mb-4">You shouldn't have to leave your phone overnight or wait 5 business days. Our clean-bench lab handles complete screen, battery, and micro-component restorations while you stroll across to Treaty Centre.</p>
+                                    
+                                    <!-- Protocol Milestone Timeline -->
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-sm-3 col-6">
+                                            <div class="p-2 rounded-2 bg-light border border-light-1 h-100">
+                                                <div class="fs-11 fw-bold text-color mb-1">00:00</div>
+                                                <div class="fs-12 fw-bold text-dark">Intake &amp; QA</div>
+                                                <div class="fs-10 text-muted">40-point diagnostics</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-6">
+                                            <div class="p-2 rounded-2 bg-light border border-light-1 h-100">
+                                                <div class="fs-11 fw-bold text-color mb-1">00:08</div>
+                                                <div class="fs-12 fw-bold text-dark">Clean Bench</div>
+                                                <div class="fs-10 text-muted">Micro-disassembly</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-6">
+                                            <div class="p-2 rounded-2 bg-light border border-light-1 h-100">
+                                                <div class="fs-11 fw-bold text-color mb-1">00:18</div>
+                                                <div class="fs-12 fw-bold text-dark">OEM Assembly</div>
+                                                <div class="fs-10 text-muted">Gasket &amp; dust seal</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-6">
+                                            <div class="p-2 rounded-2 bg-light border border-light-1 h-100">
+                                                <div class="fs-11 fw-bold text-color mb-1">00:25</div>
+                                                <div class="fs-12 fw-bold text-dark">Calibration</div>
+                                                <div class="fs-10 text-muted">12M warranty pass</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-30 rounded-1 h-100 tech-card-luxury">
-                                <div class="fs-32 text-color mb-3"><i class="fa fa-clock-o"></i></div>
-                                <h4>20–30 Min Turnaround</h4>
-                                <p class="op-7 fs-14 mb-0">Most smartphone screen and battery fixes are completed in under 30 minutes while you stroll across to Treaty Shopping Centre.</p>
+                        <!-- Bento 2: 4-Column Warranty Card -->
+                        <div class="bento-col-4">
+                            <div class="bento-card">
+                                <div>
+                                    <div class="bento-icon-box">
+                                        <i class="fa fa-shield fs-22"></i>
+                                    </div>
+                                    <h4 class="mb-2">12-Month Written Warranty</h4>
+                                    <p class="op-7 fs-13 mb-0">Every replacement display, power cell, and internal ribbon is serial-tracked under our 1-year written guarantee. If any fault arises, we replace it on the spot.</p>
+                                </div>
+                                <div class="mt-3 pt-3 border-top border-light-1 fs-11 text-success fw-bold">
+                                    <i class="fa fa-check-circle me-1"></i> Zero Labor Fee Guarantee
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-30 rounded-1 h-100 tech-card-luxury">
-                                <div class="fs-32 text-color mb-3"><i class="fa fa-microchip"></i></div>
-                                <h4>Original OEM-Grade Parts</h4>
-                                <p class="op-7 fs-14 mb-0">We use high-specification authentic OLED displays and Grade-A certified battery cells for optimal performance and safety.</p>
+                        <!-- Bento 3: 4-Column GDPR Security -->
+                        <div class="bento-col-4">
+                            <div class="bento-card">
+                                <div>
+                                    <div class="bento-icon-box">
+                                        <i class="fa fa-lock fs-22"></i>
+                                    </div>
+                                    <h4 class="mb-2">100% Data Confidentiality</h4>
+                                    <p class="op-7 fs-13 mb-0">Your private photos, banking apps, and WhatsApp chats remain completely untouched under British GDPR compliance. No factory wipe required.</p>
+                                </div>
+                                <div class="mt-3 pt-3 border-top border-light-1 fs-11 text-muted">
+                                    <i class="fa fa-shield text-color me-1"></i> Passcode-Free Hardware Testing
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-30 rounded-1 h-100 tech-card-luxury">
-                                <div class="fs-32 text-color mb-3"><i class="fa fa-handshake-o"></i></div>
-                                <h4>No Fix, No Fee Guarantee</h4>
-                                <p class="op-7 fs-14 mb-0">If our technical inspection determines that your device is unrepairable, you will not be charged a single penny for diagnostic time.</p>
+                        <!-- Bento 4: 4-Column Clean Bench -->
+                        <div class="bento-col-4">
+                            <div class="bento-card">
+                                <div>
+                                    <div class="bento-icon-box">
+                                        <i class="fa fa-microchip fs-22"></i>
+                                    </div>
+                                    <h4 class="mb-2">Class-100 Clean Bench</h4>
+                                    <p class="op-7 fs-13 mb-0">ESD-safe antistatic workstations, high-power stereo microscopes, cold lasers, and thermal imaging diagnostics for logic board faults.</p>
+                                </div>
+                                <div class="mt-3 pt-3 border-top border-light-1 fs-11 text-muted">
+                                    <i class="fa fa-wrench text-color me-1"></i> Micro-Soldering Certified
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-30 rounded-1 h-100 tech-card-luxury">
-                                <div class="fs-32 text-color mb-3"><i class="fa fa-lock"></i></div>
-                                <h4>100% Data Confidentiality</h4>
-                                <p class="op-7 fs-14 mb-0">Your private photos, WhatsApp chats, contacts, and personal files remain strictly untouched under British GDPR compliance.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-30 rounded-1 h-100 tech-card-luxury">
-                                <div class="fs-32 text-color mb-3"><i class="fa fa-tag"></i></div>
-                                <h4>Local Quote Beat Guarantee</h4>
-                                <p class="op-7 fs-14 mb-0">Found a genuine like-for-like repair quote cheaper on Hounslow High Street? We will gladly honour and beat it on the spot.</p>
+                        <!-- Bento 5: 4-Column Price Beat -->
+                        <div class="bento-col-4">
+                            <div class="bento-card">
+                                <div>
+                                    <div class="bento-icon-box">
+                                        <i class="fa fa-handshake-o fs-22"></i>
+                                    </div>
+                                    <h4 class="mb-2">Local Price Beat Guarantee</h4>
+                                    <p class="op-7 fs-13 mb-0">Found a genuine like-for-like repair quote cheaper on Hounslow High Street? We honor and beat it on the spot without cutting corners on OEM parts.</p>
+                                </div>
+                                <div class="mt-3 pt-3 border-top border-light-1 fs-11 text-success fw-bold">
+                                    <i class="fa fa-tag me-1"></i> No Fix, No Fee Assured
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -988,8 +1263,17 @@
                     </div>
 
                     <div class="row g-4">
-                        <!-- Left: Address, Hours, Directions -->
+                        <!-- Left: Address, Live Hours, Interactive Transit Guide -->
                         <div class="col-lg-5">
+                            <!-- Live Store Status Banner -->
+                            <div class="p-3 bg-white rounded-1 border border-light-1 mb-3 shadow-sm d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="live-pulse-dot" id="live-dot-indicator"></span>
+                                    <span class="fs-13 fw-bold text-dark" id="live-store-status-text">Checking London Time...</span>
+                                </div>
+                                <span class="badge-subtle" style="font-size: 11px;">142 High St</span>
+                            </div>
+
                             <div class="p-30 bg-white rounded-1 border border-light-1 mb-4 shadow-sm">
                                 <h4 class="mb-2 text-dark">Star Communications</h4>
                                 <p class="fs-14 op-8 mb-3">
@@ -1005,24 +1289,32 @@
                                     </a>
                                 </div>
 
-                                <div class="border-top border-light-1 pt-3 fs-13 op-8 space-y-2">
-                                    <div><i class="fa fa-subway text-color me-2"></i> <strong>Tube:</strong> 2 mins walk from Hounslow Central (Piccadilly Line)</div>
-                                    <div><i class="fa fa-bus text-color me-2"></i> <strong>Buses:</strong> 81, 111, 116, 120, 203, 222, 281, H37, H98 stop outside</div>
-                                    <div><i class="fa fa-car text-color me-2"></i> <strong>Parking:</strong> Treaty Shopping Centre multi-storey (TW3 1ES)</div>
+                                <!-- Interactive Transit Selector -->
+                                <div class="border-top border-light-1 pt-3 mb-3">
+                                    <div class="fs-11 fw-bold text-dark text-uppercase tracking-1 mb-2">Transit &amp; Arrival Selector</div>
+                                    <div class="d-flex flex-wrap gap-1 mb-2">
+                                        <button type="button" class="transit-tab-pill active" onclick="switchTransitTab('tube', this)">🚇 Tube</button>
+                                        <button type="button" class="transit-tab-pill" onclick="switchTransitTab('bus', this)">🚌 Buses</button>
+                                        <button type="button" class="transit-tab-pill" onclick="switchTransitTab('parking', this)">🚗 Parking</button>
+                                        <button type="button" class="transit-tab-pill" onclick="switchTransitTab('walk', this)">🚶 Walk</button>
+                                    </div>
+                                    <div id="transit-content" class="p-2 rounded-2 bg-light border border-light-1 fs-12 text-dark">
+                                        <i class="fa fa-subway text-color me-1"></i> <strong>Tube:</strong> 2 mins walk from Hounslow Central (Piccadilly Line). Turn left out of station and walk down to High Street.
+                                    </div>
                                 </div>
                             </div>
 
                             <!-- Opening Hours Table -->
                             <div class="p-30 bg-white rounded-1 border border-light-1 shadow-sm">
                                 <h5 class="mb-3 text-dark"><i class="icofont-clock-time text-color me-2"></i> Weekly Opening Hours</h5>
-                                <ul class="list-unstyled mb-0 fs-13">
-                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1"><span>Monday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
-                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1"><span>Tuesday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
-                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1"><span>Wednesday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
-                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1"><span>Thursday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
-                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1"><span>Friday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
-                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1"><span>Saturday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
-                                    <li class="d-flex justify-content-between py-1"><span class="text-color fw-semibold">Sunday:</span> <span class="fw-bold text-color">11:00 – 17:00</span></li>
+                                <ul class="list-unstyled mb-0 fs-13" id="hours-table">
+                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1" data-day="1"><span>Monday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
+                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1" data-day="2"><span>Tuesday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
+                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1" data-day="3"><span>Wednesday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
+                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1" data-day="4"><span>Thursday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
+                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1" data-day="5"><span>Friday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
+                                    <li class="d-flex justify-content-between py-1 border-bottom border-light-1" data-day="6"><span>Saturday:</span> <span class="fw-bold text-dark">09:30 – 19:00</span></li>
+                                    <li class="d-flex justify-content-between py-1" data-day="0"><span class="text-color fw-semibold">Sunday:</span> <span class="fw-bold text-color">11:00 – 17:00</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -1056,7 +1348,7 @@
                     <!-- Brand Col -->
                     <div class="col-lg-4 col-sm-6">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="/images/logo-icon.svg" alt="Star Communications Logo" style="width: 38px; height: 38px; margin-right: 12px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));" class="img-fluid">
+                            <img src="/images/logo-icon.svg" alt="Star Communications Logo" style="width: 38px; height: 38px; margin-right: 12px;" class="img-fluid">
                             <div>
                                 <span class="fs-16 fw-bold text-white d-block lh-1">STAR COMMUNICATIONS</span>
                                 <span class="fs-10 text-uppercase fw-600 tracking-2 d-block mt-1 brand-subline" style="color: #48bb88;">HOUNSLOW • LONDON</span>
@@ -1272,7 +1564,399 @@
             }
         }
 
-        // 3. Scroll-Driven Cinematic Zoom into Phone
+        // 3. Titanium Color Finish Switcher Dock
+        function setPhoneFinish(finish, el) {
+            var phone = document.getElementById('interactive-phone');
+            if (!phone) return;
+
+            // Remove existing finish classes
+            phone.classList.remove('finish-natural', 'finish-desert', 'finish-black', 'finish-emerald');
+            phone.classList.add('finish-' + finish);
+
+            // Update swatch buttons
+            var swatches = document.querySelectorAll('.swatch-btn');
+            swatches.forEach(function(s) { s.classList.remove('active'); });
+            if (el) el.classList.add('active');
+
+            // Update label & image
+            var label = document.getElementById('phone-finish-label');
+            var heroImg = document.getElementById('phone-hero-img');
+            var specBadge = document.getElementById('phone-spec-badge');
+            var specTitle = document.getElementById('phone-spec-title');
+
+            if (finish === 'natural') {
+                if (label) label.textContent = 'Natural Titanium';
+                if (heroImg) heroImg.src = '/images/stock/hero-phones.jpg';
+                if (specBadge) specBadge.textContent = 'Natural Titanium';
+                if (specTitle) specTitle.textContent = 'iPhone 16 / 15 Pro & S24 Ultra';
+            } else if (finish === 'desert') {
+                if (label) label.textContent = 'Desert Titanium';
+                if (heroImg) heroImg.src = '/images/stock/iphone-15-pro-titanium.jpg';
+                if (specBadge) specBadge.textContent = 'Desert Titanium Edition';
+                if (specTitle) specTitle.textContent = 'Apple iPhone 16 Pro Max';
+            } else if (finish === 'black') {
+                if (label) label.textContent = 'Obsidian Black';
+                if (heroImg) heroImg.src = '/images/stock/smartphones-hero-modern.jpg';
+                if (specBadge) specBadge.textContent = 'Space Black Stealth';
+                if (specTitle) specTitle.textContent = 'Galaxy S24 Ultra & Pro Max';
+            } else if (finish === 'emerald') {
+                if (label) label.textContent = 'Star British Racing Emerald';
+                if (heroImg) heroImg.src = '/images/stock/flagship-phones-duo.jpg';
+                if (specBadge) specBadge.textContent = 'Star Atelier Exclusive';
+                if (specTitle) specTitle.textContent = 'Handcrafted Emerald Series';
+            }
+        }
+
+        // 4. In-Phone Screen Mode Switcher
+        function setPhoneScreenMode(mode, el) {
+            var panels = document.querySelectorAll('.screen-mode-panel');
+            panels.forEach(function(p) { p.classList.add('d-none'); });
+
+            var tabs = document.querySelectorAll('.screen-tab-btn');
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            if (el) el.classList.add('active');
+
+            var targetPanel = document.getElementById('screen-mode-' + mode);
+            if (targetPanel) {
+                targetPanel.classList.remove('d-none');
+            }
+
+            if (mode === 'crack') {
+                setTimeout(function() {
+                    initBeforeAfterSlider('phone-ba-slider');
+                }, 50);
+            }
+        }
+
+        // 5. Quick Speed & Parts Checker
+        function updateQuickSpeedCheck() {
+            var select = document.getElementById('quickSpeedModel');
+            var timeEl = document.getElementById('quickSpeedTime');
+            var stockEl = document.getElementById('quickSpeedStock');
+            if (!select || !timeEl || !stockEl) return;
+
+            var val = select.value;
+            if (val === 'iphone16') {
+                timeEl.textContent = '⚡ 20–25 Mins';
+                stockEl.textContent = '🟢 OEM Grade In Stock';
+            } else if (val === 's24') {
+                timeEl.textContent = '⚡ 25–30 Mins';
+                stockEl.textContent = '🟢 Dynamic AMOLED 2X In Stock';
+            } else if (val === 'pixel8') {
+                timeEl.textContent = '⚡ 25–35 Mins';
+                stockEl.textContent = '🟢 Actua OLED In Stock';
+            } else if (val === 'iphone14') {
+                timeEl.textContent = '⚡ 15–20 Mins';
+                stockEl.textContent = '🟢 Super Retina In Stock';
+            }
+        }
+
+        // 6. Interactive Before & After Slider Engine
+        function initBeforeAfterSlider(containerId) {
+            var container = document.getElementById(containerId);
+            if (!container) return;
+
+            var beforeLayer = container.querySelector('.ba-before-layer');
+            var handle = container.querySelector('.ba-handle');
+            var beforeImg = beforeLayer ? beforeLayer.querySelector('img') : null;
+            if (!beforeLayer || !handle || !beforeImg) return;
+
+            function syncImageWidth() {
+                beforeImg.style.width = container.offsetWidth + 'px';
+            }
+            syncImageWidth();
+            window.addEventListener('resize', syncImageWidth);
+
+            var isDragging = false;
+
+            function setPosition(x) {
+                var rect = container.getBoundingClientRect();
+                var pos = x - rect.left;
+                var pct = Math.max(0, Math.min(pos / rect.width, 1)) * 100;
+                beforeLayer.style.width = pct + '%';
+                handle.style.left = pct + '%';
+            }
+
+            container.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                setPosition(e.clientX);
+            });
+
+            window.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                setPosition(e.clientX);
+            });
+
+            window.addEventListener('mouseup', function() {
+                isDragging = false;
+            });
+
+            container.addEventListener('touchstart', function(e) {
+                isDragging = true;
+                if (e.touches.length > 0) {
+                    setPosition(e.touches[0].clientX);
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchmove', function(e) {
+                if (!isDragging || e.touches.length === 0) return;
+                setPosition(e.touches[0].clientX);
+            }, { passive: true });
+
+            window.addEventListener('touchend', function() {
+                isDragging = false;
+            });
+        }
+
+        // 7. Interactive Trade-In Cash Valuation Calculator
+        var tradeInState = {
+            brand: 'apple',
+            model: 'Apple iPhone 15 Pro',
+            storage: '256GB',
+            condition: 'flawless'
+        };
+
+        var tradeInModels = {
+            apple: [
+                'Apple iPhone 16 Pro Max',
+                'Apple iPhone 16 Pro',
+                'Apple iPhone 15 Pro Max',
+                'Apple iPhone 15 Pro',
+                'Apple iPhone 15',
+                'Apple iPhone 14 Pro Max',
+                'Apple iPhone 14 Pro',
+                'Apple iPhone 14',
+                'Apple iPhone 13 Pro',
+                'Apple iPhone 13'
+            ],
+            samsung: [
+                'Samsung Galaxy S24 Ultra',
+                'Samsung Galaxy S24+',
+                'Samsung Galaxy S24',
+                'Samsung Galaxy S23 Ultra',
+                'Samsung Galaxy Z Fold 5',
+                'Samsung Galaxy Z Flip 5',
+                'Samsung Galaxy S22 Ultra'
+            ],
+            google: [
+                'Google Pixel 9 Pro XL',
+                'Google Pixel 9 Pro',
+                'Google Pixel 9',
+                'Google Pixel 8 Pro',
+                'Google Pixel 8',
+                'Google Pixel 7 Pro'
+            ]
+        };
+
+        function populateTradeInModels(brand) {
+            var select = document.getElementById('tradeInModelSelect');
+            if (!select) return;
+            select.innerHTML = '';
+            var list = tradeInModels[brand] || tradeInModels.apple;
+            list.forEach(function(m) {
+                var opt = document.createElement('option');
+                opt.value = m;
+                opt.textContent = m;
+                select.appendChild(opt);
+            });
+            tradeInState.model = list[0];
+            updateTradeInCalculation();
+        }
+
+        function selectTradeInBrand(brand, el) {
+            tradeInState.brand = brand;
+            var buttons = el.parentNode.querySelectorAll('.calc-pill-btn');
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            el.classList.add('active');
+            populateTradeInModels(brand);
+        }
+
+        function selectTradeInStorage(cap, el) {
+            tradeInState.storage = cap;
+            var buttons = el.parentNode.querySelectorAll('.calc-pill-btn');
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            el.classList.add('active');
+            updateTradeInCalculation();
+        }
+
+        function selectTradeInCondition(cond, el) {
+            tradeInState.condition = cond;
+            var buttons = el.parentNode.querySelectorAll('.calc-pill-btn');
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            el.classList.add('active');
+            updateTradeInCalculation();
+        }
+
+        function updateTradeInCalculation() {
+            var modelSelect = document.getElementById('tradeInModelSelect');
+            if (modelSelect) {
+                tradeInState.model = modelSelect.value;
+            }
+
+            var devSummary = document.getElementById('tradeInDeviceSummary');
+            var condSummary = document.getElementById('tradeInConditionSummary');
+            var tierBadge = document.getElementById('tradeInTierBadge');
+            var tierDesc = document.getElementById('tradeInTierDesc');
+            var waBtn = document.getElementById('tradeInWaBtn');
+
+            if (devSummary) {
+                devSummary.textContent = tradeInState.model + ' (' + tradeInState.storage + ')';
+            }
+
+            if (tradeInState.condition === 'flawless') {
+                if (condSummary) condSummary.textContent = 'Condition: Grade A+ Pristine (Full Functional Working Order, Unmarked)';
+                if (tierBadge) tierBadge.textContent = 'Top Cash Market Value Tier';
+                if (tierDesc) tierDesc.textContent = 'Eligible for our highest in-store cash payout or immediate trade-in credit toward any certified phone in store.';
+            } else if (tradeInState.condition === 'good') {
+                if (condSummary) condSummary.textContent = 'Condition: Grade B (Fully Functional, Minor Normal Casing Wear)';
+                if (tierBadge) tierBadge.textContent = 'Premium High Street Valuation';
+                if (tierDesc) tierDesc.textContent = 'Excellent instant bank transfer or cash in hand with light cosmetic wear allowance.';
+            } else {
+                if (condSummary) condSummary.textContent = 'Condition: Cracked Glass / Damaged Screen / Faulty';
+                if (tierBadge) tierBadge.textContent = 'Component Cash Recovery Tier';
+                if (tierDesc) tierDesc.textContent = 'We still pay guaranteed top cash for damaged screens and faulty components. Zero salvage deduction.';
+            }
+
+            if (waBtn) {
+                var message = 'Hello Star Communications! I generated a trade-in quote for my ' + tradeInState.model + ' (' + tradeInState.storage + ', ' + tradeInState.condition + '). Can I bring it to 142 High Street for immediate payment?';
+                waBtn.href = 'https://wa.me/447911123456?text=' + encodeURIComponent(message);
+            }
+        }
+
+        // 8. Catalog Filtering Engine
+        function filterCatalog(category, el) {
+            var buttons = document.querySelectorAll('.catalog-filter-btn');
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            if (el) el.classList.add('active');
+
+            var items = document.querySelectorAll('.catalog-item');
+            items.forEach(function(item) {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 9. Booking Configurator Chips Handlers
+        function selectBookingDevice(device, el) {
+            var chips = el.parentNode.querySelectorAll('.booking-chip');
+            chips.forEach(function(c) { c.classList.remove('active'); });
+            el.classList.add('active');
+
+            var input = document.getElementById('bookDevice');
+            if (input) input.value = device;
+
+            var modelInput = document.getElementById('bookModel');
+            if (modelInput) {
+                if (device.indexOf('iPhone') !== -1) {
+                    modelInput.placeholder = 'e.g. iPhone 15 Pro Max, iPhone 14';
+                } else if (device.indexOf('Samsung') !== -1) {
+                    modelInput.placeholder = 'e.g. Galaxy S24 Ultra, S23, A54';
+                } else if (device.indexOf('iPad') !== -1) {
+                    modelInput.placeholder = 'e.g. iPad Pro 11", iPad Air 5th Gen';
+                } else if (device.indexOf('MacBook') !== -1) {
+                    modelInput.placeholder = 'e.g. MacBook Air M2, Pro 14"';
+                } else {
+                    modelInput.placeholder = 'e.g. Apple Watch Series 9, Switch OLED';
+                }
+            }
+        }
+
+        function selectBookingIssue(issue, turnaround, el) {
+            var chips = el.parentNode.querySelectorAll('.booking-chip');
+            chips.forEach(function(c) { c.classList.remove('active'); });
+            el.classList.add('active');
+
+            var input = document.getElementById('bookService');
+            if (input) input.value = issue;
+
+            var badge = document.getElementById('bookingTurnaroundBadge');
+            if (badge) {
+                badge.innerHTML = '<i class="fa fa-bolt me-1"></i> ' + turnaround + ' Turnaround';
+            }
+        }
+
+        function selectBookingSlot(slot, el) {
+            var slots = document.querySelectorAll('.booking-time-slot');
+            slots.forEach(function(s) { s.classList.remove('active'); });
+            el.classList.add('active');
+
+            var input = document.getElementById('bookTimeSlot');
+            if (input) input.value = slot;
+        }
+
+        // 10. Live Store Status (Calculated with London Local Time)
+        function updateLiveStoreStatus() {
+            var statusText = document.getElementById('live-store-status-text');
+            var dot = document.getElementById('live-dot-indicator');
+            if (!statusText) return;
+
+            var now = new Date();
+            var londonStr = now.toLocaleString('en-US', { timeZone: 'Europe/London' });
+            var londonDate = new Date(londonStr);
+            var day = londonDate.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+            var hour = londonDate.getHours();
+            var min = londonDate.getMinutes();
+            var timeVal = hour * 60 + min;
+
+            var isOpen = false;
+            var openTime = 9 * 60 + 30; // 09:30
+            var closeTime = 19 * 60;    // 19:00
+
+            if (day === 0) {
+                // Sunday: 11:00 to 17:00
+                openTime = 11 * 60;
+                closeTime = 17 * 60;
+            }
+
+            if (timeVal >= openTime && timeVal < closeTime) {
+                isOpen = true;
+            }
+
+            if (isOpen) {
+                var closeStr = day === 0 ? '17:00' : '19:00';
+                statusText.innerHTML = '🟢 <strong>Open Now</strong> • Workshop Closes at ' + closeStr;
+                if (dot) dot.style.background = '#10b981';
+            } else {
+                var nextOpen = day === 6 ? 'Sunday at 11:00' : 'Tomorrow at 09:30';
+                statusText.innerHTML = '🌙 <strong>Closed Now</strong> • Opens ' + nextOpen;
+                if (dot) dot.style.background = '#f59e0b';
+            }
+
+            // Highlight current day in hours table
+            var rows = document.querySelectorAll('#hours-table li');
+            rows.forEach(function(row) {
+                var rowDay = parseInt(row.getAttribute('data-day'));
+                if (rowDay === day) {
+                    row.style.background = '#edf7f3';
+                    row.style.fontWeight = 'bold';
+                }
+            });
+        }
+
+        // 11. Interactive Transit Selector
+        function switchTransitTab(mode, el) {
+            var pills = document.querySelectorAll('.transit-tab-pill');
+            pills.forEach(function(p) { p.classList.remove('active'); });
+            if (el) el.classList.add('active');
+
+            var content = document.getElementById('transit-content');
+            if (!content) return;
+
+            if (mode === 'tube') {
+                content.innerHTML = '<i class="fa fa-subway text-color me-1"></i> <strong>Underground:</strong> 2 mins walk from Hounslow Central (Piccadilly Line). Turn left out of station and walk down to High Street.';
+            } else if (mode === 'bus') {
+                content.innerHTML = '<i class="fa fa-bus text-color me-1"></i> <strong>Buses:</strong> Routes 81, 111, 116, 120, 203, 222, 281, H37 &amp; H98 stop directly outside Treaty Centre opposite our store.';
+            } else if (mode === 'parking') {
+                content.innerHTML = '<i class="fa fa-car text-color me-1"></i> <strong>Parking:</strong> Treaty Shopping Centre Multi-Storey (Sat Nav: TW3 1ES) has 645 secure spaces directly opposite us.';
+            } else if (mode === 'walk') {
+                content.innerHTML = '<i class="fa fa-male text-color me-1"></i> <strong>Pedestrian:</strong> Located right on pedestrian High Street, opposite Treaty Centre main glass entrance. Next to major banks.';
+            }
+        }
+
+        // 12. Scroll-Driven Cinematic Zoom into Phone
         function initPhoneZoom() {
             var phone = document.getElementById('interactive-phone');
             if (!phone) return;
@@ -1310,7 +1994,7 @@
             handleScroll();
         }
 
-        // 4. Click-to-Zoom Dive into Workshop & Services
+        // 13. Click-to-Zoom Dive into Workshop & Services
         function zoomIntoWorkshop() {
             var phone = document.getElementById('interactive-phone');
             var target = document.getElementById('quick-action-bar') || document.getElementById('categories');
@@ -1341,11 +2025,16 @@
             }, 350);
         }
 
-        // Initialize Phone Interactive Elements on DOM Ready
+        // Initialize All Interactive Systems on DOM Ready
         document.addEventListener("DOMContentLoaded", function() {
             updatePhoneClock();
             setInterval(updatePhoneClock, 10000);
             initPhoneZoom();
+            initBeforeAfterSlider('main-ba-slider');
+            initBeforeAfterSlider('phone-ba-slider');
+            populateTradeInModels('apple');
+            updateLiveStoreStatus();
+            setInterval(updateLiveStoreStatus, 60000);
         });
     </script>
 </body>
